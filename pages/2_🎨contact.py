@@ -52,10 +52,12 @@ with st.container():
         st.markdown(
             """
             Saya adalah lulusan Teknik Informatika UIN Sunan Gunung Djati Bandung.
-
-
             """
         )
+        st.image(img_linkedin, width = 30) 
+        st.write(" [Enung Nurjanah](https://www.linkedin.com/in/enung-nur-991b8612b)")
+        st.image(img_github, width = 30) 
+        st.write(" [enung](https://github.com/enung)")
     st.write("---")
     st.write("\n")
 
