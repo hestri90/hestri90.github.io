@@ -16,10 +16,12 @@ def content_1():
     st.header("Ransomware")
     st.write("---")
     st.subheader("Apa itu _Ransomware_?")
-    st.markdown(
-        """
-        \n
-        Ransomware adalah jenis _malicious software_ atau _malware_ yang digunakan peretas untuk
+    left_column, right_column = st.columns(2)
+    with right_column:
+        st.markdown(
+            """
+            \n
+            _Ransomware_ adalah jenis _malicious software_ atau _malware_ yang digunakan peretas untuk
 mencuri informasi/data pribadi korban dan membatasi akses korban pada data tersebut
 (enkripsi). Para peretas kemudian akan meminta tebusan kepada korban untuk mengembalikan
 data yang dicuri. Biasanya tebusan diminta dalam bentuk **_Cryptocurrency_** agar tidak terlacak. \n \n
@@ -29,10 +31,11 @@ _ransomware_ akan mencari celah pada pertahanan komputer atau _operation system_
 sudah masuk ke komputer korban, ransomware akan mengenkripsi data dengan tipe seperti
 foto, dokumen, database, dan lainnya. Setelah file-file tersebut terenkripsi, maka peretas akan
 menggunakan _ransomware_ untuk meminta tebusan kepada korban.
-        \n \n \n
-        """
-    )
-    st.image(img_ransomware, caption='Contoh serangan ransomware', use_column_width='auto' )
+            \n \n \n
+            """
+        )
+    with left_column:
+        st.image(img_ransomware, caption='Contoh serangan ransomware', use_column_width='auto' )
     st.write("\n")
     st.write("sumber: https://diskominfo.mojokertokab.go.id/artikel/mengenal-wannacry-ransomware-yang-serang-dunia-1558612102")
     
@@ -65,9 +68,9 @@ korban.
         """
     )
 
-# ---- isi content Apa yang harus dilakukan ketika terkena Ransomware ----
+# ---- isi content Langkah Penanganan Serangan Ransomware ----
 def content_3():
-    st.header("Apa yang harus dilakukan ketika terkena _Ransomware_?")
+    st.header("Langkah Penanganan Serangan _Ransomware_?")
     st.write("---")
     st.markdown(
         """
@@ -85,30 +88,35 @@ melaporkan serangan _ransomware_ ke penegak hukum setempat.
         """
     )
 
-# ---- Apa yang harus dilakukan untuk mencegah terkena Ransomware ----
+# ---- Langkah Pencegahan Terinfeksi Ransomware ----
 def content_4():
-    st.header("Apa yang harus dilakukan untuk mencegah terkena _Ransomware_")
+    st.header("Langkah Pencegahan Terinfeksi _Ransomware_")
     st.write("---")
-    st.markdown(
-        """
-        **Pertama,** jangan asal menginstall _software_ kecuali dari _marketplace_ resmi dan
+    video_column, text_column = st.columns(2)
+    with video_column:
+        st.video('https://www.youtu.be/AhOBRkv4Gd4',  format="video/mp4", start_time=0)
+    with text_column:
+        st.markdown(
+            """
+            **Pertama,** jangan asal menginstall _software_ kecuali dari _marketplace_ resmi dan
 terpercaya. Biasanya _ransomware_ berkamuflase menjadi _software_ gratis yang terkesan
 legal. Software gratis ini dapat ditemui di situs web bajakan. \n \n
 **Kedua,** jangan mengunduh file terlampir dari email yang tidak anda kenal. Biasanya file
 dilampirkan dalam bentuk _.zip_. Anda dapat menemukan email seperti ini di bagian _spam_
 maupun _inbox_ biasa.\n \n
 **Ketiga,** hindari situs web yang terlihat mencurigakan. Jangan klik apapun jika anda
-mengunjungi situs web yang mencurigakan. Jangan memberikan akses cookies pada
+mengunjungi situs web yang mencurigakan. Jangan memberikan akses _cookies_ pada
 situs web tersebut.
-        """
-    )
+            """
+        )
+
 
 
 function = {
     "Ransomware" : content_1,
     "Jenis-Jenis Ransomware" : content_2,
-    "Apa yang harus dilakukan ketika terkena Ransomware" : content_3,
-    "Apa yang harus dilakukan untuk mencegah terkena Ransomware" : content_4
+    "Langkah Penanganan Serangan Ransomware" : content_3,
+    "Langkah Pencegahan Terinfeksi Ransomware" : content_4
 }
 
 selected_page = st.sidebar.selectbox("Daftar isi :", function.keys())
